@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +40,7 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmeAdapter.FilmeViewHol
         holder.diretorTextView.setText(filme.getDiretor());
         holder.posterImageView.setImageResource(filme.getImagem());
 
-        holder.itemView.setOnClickListener(v -> {
+        holder.sinopseButton.setOnClickListener(v -> {
             Toast.makeText(context, filme.getSinopse(), Toast.LENGTH_SHORT).show();
         });
     }
@@ -52,9 +53,11 @@ public class FilmeAdapter extends RecyclerView.Adapter<FilmeAdapter.FilmeViewHol
     public static class FilmeViewHolder extends RecyclerView.ViewHolder {
         TextView tituloTextView, anoTextView, diretorTextView;
         ImageView posterImageView;
+        Button sinopseButton;
 
         public FilmeViewHolder(@NonNull View itemView) {
             super(itemView);
+            sinopseButton = itemView.findViewById(R.id.sinopseButton);
             tituloTextView = itemView.findViewById(R.id.tituloTextView);
             anoTextView = itemView.findViewById(R.id.anoTextView);
             diretorTextView = itemView.findViewById(R.id.diretorTextView);
